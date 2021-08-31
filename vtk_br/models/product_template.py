@@ -6,3 +6,5 @@ class ProductTemplate(models.Model):
 	
 	contract_text = fields.Char("Contract Text")
 	invoice_description = fields.Char("Invoice Description")
+	academic_year = fields.Integer("Academic Year")
+	to_archive = fields.Boolean()
