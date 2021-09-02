@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<report
+			id="br_contract_report"
+			string="Contract BR"
+			model="sale.order"
+			report_type="qweb-pdf"
+			file="vtk_br.br_contract"
+			name="vtk_br.br_contract"
+			attachment_use="False"
+			print_report_name="'Contract VTK - %s' % (object.partner_id.name)"
+			/>
+		<report
+			id="br_invoice_report"
+			string="Invoice BR"
+			model="account.move"
+			report_type="qweb-pdf"
+			file="vtk_br.br_invoice"
+			name="vtk_br.br_invoice"
+			attachment_use="False"
+			print_report_name="'Invoice VTK - %s %s' % (object.name, object.partner_id.name)"
+			/>
+
+	</data>
+</odoo>
