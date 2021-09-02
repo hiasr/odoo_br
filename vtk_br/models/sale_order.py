@@ -6,3 +6,4 @@ class SaleOrder(models.Model):
 
 	state = fields.Selection(readonly=False)
 	create_date_temp = fields.Datetime()
+	contract_title = fields.Char()

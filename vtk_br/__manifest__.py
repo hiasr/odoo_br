@@ -6,6 +6,7 @@
 	'data': [
 		'views/reports.xml',
 		'views/templates.xml',
+		'views/sale.xml'
 	],
 	'description': """
 		Uitbreiding van Odoo voor VTK Bedrijvenrelaties

@@ -63,10 +63,10 @@
 
 			<div class="title">
 				<t t-if="doc.partner_id.parent_id">
-					<h1 class="title">Contract: VTK - <span t-field="doc.partner_id.parent_id.name"/></h1>
+					<h1 class="title">VTK - <span t-field="doc.partner_id.parent_id.name"/>: <span t-field="doc.contract_title"/></h1>
 				</t>
 				<t t-else="">
-					<h1 class="title">Contract: VTK - <span t-field="doc.partner_id.name"/></h1>
+					<h1 class="title">VTK - <span t-field="doc.partner_id.name"/>: <span t-field="doc.contract_title"/></h1>
 				</t>
 			</div>
 
