@@ -1,7 +1,7 @@
 {
 	'name': "VTK Bedrijvenrelaties",
 	'version': "14.0.0.1",
-	'depends': ['base','sale','contacts'],
+	'depends': ['base','sale','contacts','sale_order_general_discount'],
 	'author': "Ruben Hias",
 	'data': [
 		'views/reports.xml',
