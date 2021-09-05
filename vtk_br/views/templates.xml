@@ -108,6 +108,20 @@
 				</t>
 			</div>
 
+			<t t-if="doc.amount_untaxed >= 5000">
+				<div class="partner_discount">
+					<ul>
+						<li>
+							Vanwege de trouwe samenwerking biedt VTK een Partnership aan. Dit houdt in dat het logo
+							van het bedrijf gratis in ons wekelijks magazine \‘t Bakske en op de homepage van onze
+							website www.vtk.be te zien zal zijn. Zo staat het bedrijf het hele jaar door in de spotlights.
+							Bovendien krijgt het bedrijf een korting van 5% op het totale bedrag van dit contract en mag het
+							bedrijf gratis gebruik maken van één Event Package gedurende het academiejaar 2021-2022.
+						</li>
+					</ul>
+				</div>
+			</t>
+
 			<div class="payment_terms">
 				<ul>
 					<li>
