@@ -24,6 +24,8 @@ class SaleOrder(models.Model):
 					line.discount = 5
 			else:
 				so.general_discount = 0
+				for line in so.order_line:
+					line.discount = 0
 
 	def print_contract(self):
 		report_id = self.env["ir.actions.report"].search([["report_name","=","vtk_br.br_contract"]])
