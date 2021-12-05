@@ -63,10 +63,10 @@
 
 			<div class="title">
 				<t t-if="doc.partner_id.parent_id">
-					<h1 class="title">VTK - <span t-field="doc.partner_id.parent_id.name"/>: <span t-field="doc.contract_title"/></h1>
+					<h1 class="title">Contract: Kiesploeg Omega - <span t-field="doc.partner_id.parent_id.name"/></h1>
 				</t>
 				<t t-else="">
-					<h1 class="title">VTK - <span t-field="doc.partner_id.name"/>: <span t-field="doc.contract_title"/></h1>
+					<h1 class="title">Contract: Kiesploeg Omega - <span t-field="doc.partner_id.name"/></h1>
 				</t>
 			</div>
 
@@ -93,8 +93,8 @@
 					<t t-esc="doc.company_id.street"/><br/>
 					<t t-esc="doc.company_id.zip"/> <t t-esc="doc.company_id.city"/><br/>
 					<t t-esc="doc.company_id.country_id.name"/><br/>
-					vertegenwoordigd door ondergetekende, <t t-esc="doc.user_id.name"/>,<br/>
-					hierna genoemd "VTK"<br/>
+					vertegenwoordigd door ondergetekende, Ruben Hias,<br/>
+					hierna genoemd "Kiesploeg Omega"<br/>
 				</div>
 			</div>
 
@@ -103,34 +103,22 @@
 			</div>
 			
 			<div class="products">
-				<t t-foreach="doc.order_line" t-as="line">
-					<div t-raw="line.product_id.contract_text"> </div>
-				</t>
+				<ul>
+					<t t-foreach="doc.order_line" t-as="line">
+						<li>
+							<div t-raw="line.product_id.contract_text"> </div>
+						</li>
+					</t>
+				</ul>
+				<br/>
 			</div>
 
-			<t t-if="doc.amount_untaxed >= 5000">
-				<div class="partner_discount">
-					<ul>
-						<li>
-							Vanwege de trouwe samenwerking biedt VTK een Partnership aan. Dit houdt in dat het logo
-							van het bedrijf gratis in ons wekelijks magazine \‘t Bakske en op de homepage van onze
-							website www.vtk.be te zien zal zijn. Zo staat het bedrijf het hele jaar door in de spotlights.
-							Bovendien krijgt het bedrijf een korting van 5% op het totale bedrag van dit contract en mag het
-							bedrijf gratis gebruik maken van één Event Package gedurende het academiejaar 2021-2022.
-						</li>
-					</ul>
-				</div>
-			</t>
 
 			<div class="payment_terms">
-				<ul>
-					<li>
-						Het bedrijf verklaart de volgende betalingsvoorwaarden na te leven: € <t t-esc="doc.amount_untaxed"/> (excl. 21%
-						BTW), te betalen uiterlijk 30 dagen na facturatiedatum. De storting dient te gebeuren op het
-						rekeningnummer BE30 7450 1759 0011 van VTK Ondersteuning vzw met vermelding van
-						het factuurnummer.
-					</li>
-				</ul>
+				Het bedrijf verklaart de volgende betalingsvoorwaarden na te leven: € <t t-esc="doc.amount_untaxed"/> (excl. 21%
+				BTW), te betalen uiterlijk 30 dagen na facturatiedatum. De storting dient te gebeuren op het
+				rekeningnummer BE30 7450 1759 0011 van VTK Ondersteuning vzw met vermelding van
+				het factuurnummer.
 			</div>
 
 			<div class="ending">
@@ -145,134 +133,93 @@
 
 				<div class="signatures" style="overflow:hidden;">
 					<div style="float:left;width:50%">
-						In naam en voor rekening van het bedrijf,
+						<p>
+							In naam en voor rekening van het bedrijf,
+						</p>
 					</div>
 
 					<div style="float:right;width:50%;page-break-after:always;">
 						<p>
-							In naam en voor rekening van VTK,<br/>
-							Lars Wouters<br/>
-							Verantwoordelijke Bedrijvenrelaties<br/>
+							In naam en voor rekening van Kiesploeg Omega,<br/>
+							Ruben Hias<br/>
 							<br/><br/><br/>
 						</p>
 
 						<p>
-							In naam en voor rekening van VTK,<br/>
-							<t t-esc="doc.user_id.name"/>
+							In naam en voor rekening van VKK,<br/>
+							Bram Devriese
 						</p>
 					</div>
 				</div>
 			</div>
-			<div class="terms_conditions" style="page-break-before:always;font-size:10px">
-				<p>
-					<b>Verkoopsvoorwaarden</b>
-					<br />
-					Artikel 1: Toepassingsgebied
-					<br />
-					Deze algemene voorwaarden gelden voor alle contracten afgesloten door VTK Ondersteuning VZW. De medecontractant wordt geacht ze te aanvaarden door het enkel feit van
-					de ondertekening van het contract. Afwijking van deze verkoopsvoorwaarden, zelfs indien vermeld op documenten uitgaande van de medecontractant zijn alleen dan aan VTK
-					Ondersteuning V tegenstelbaar wanneer zij door VTK Ondersteuning VZW schriftelijk werden bevestigd. In dat geval blijven alle overige verkoopsvoorwaarden van kracht waarvan
-					niet uitdrukkelijk werd afgeweken.
-					<br />
-					Artikel 2: Totstandkoming van het contract
-					<br />
-					2.1. Alle mondelinge voorbesprekingen zijn zuiver informatief. De overeenkomst komt slechts tot stand door ondertekening van het contract door VTK Ondersteuning VZW. Een begin
-					van uitvoering wordt gelijkgesteld met de afsluiting van een contract en met aanvaarding van deze algemene voorwaarden tenzij deze uitvoering onder uitdrukkelijk voorbehoud is
-					geschied. De uitvoering ervan geschiedt conform de algemene verkoopsvoorwaarden in de offerte, het contract, de bestelbon, de leveringsnota, en/of de factuur opgenomen, zonder
-					toepassing van de eigen voorwaarden van de medecontractant, zelfs al worden deze naderhand meegedeeld.
-					<br />
-					2.2. Elke annulering van de bestelling dient schriftelijk te geschieden. Zij is slechts geldig mits schriftelijke aanvaarding door VTK Ondersteuning VZW. Ingeval van annulering is de
-					medecontractant een forfaitaire vergoeding verschuldigd afhankelijk van het onderwerp van de overeenkomst, deze dekt de vaste en variabele kosten en mogelijke winstderving.
-					<br />
-					2.2.1. Voor Sector Nights, BR Launches, Internship Fair, Jobfair of gelijkaardige evenementen zal bij een annulatie tot en met 40 dagen voor het evenement 35% van het
-					overeengekomen bedrag aangerekend worden, van 39 tot en met 21 dagen voor het evenement 60% van het overeengekomen bedrag aangerekend worden en vanaf 20 dagen voor
-					het evenement zal 100% van dit bedrag aangerekend worden.
-					<br />
-					2.2.2. Voor goederen of engagementen die bij het tekenen van de overeenkomst niet gekoppeld zijn aan een fysiek evenement zal bij annulatie een vergoeding van 35% verschuldigd
-					zijn van de prijs.
-					<br />
-					Artikel 3: Prijs
-					<br />
+				<div class="terms_conditions" style="page-break-before:always;font-size:10px">
+					<p>
+					<b>Verkoopsvoorwaarden</b><br/>
+
+					<b>Artikel 1: Toepassingsgebied</b><br/>
+
+					Deze algemene voorwaarden gelden voor alle contracten afgesloten door VTK Ondersteuning VZW. De medecontractant wordt geacht ze te aanvaarden door het enkel feit van de ondertekening van het contract. Afwijking van deze verkoopsvoorwaarden, zelfs indien vermeld op documenten uitgaande van de medecontractant zijn alleen dan aan VTK Ondersteuning V tegenstelbaar wanneer zij door VTK Ondersteuning VZW schriftelijk werden bevestigd. In dat geval blijven alle overige verkoopsvoorwaarden van kracht waarvan niet uitdrukkelijk werd afgeweken.
+					<br/>
+
+					<b>Artikel 2: Totstandkoming van het contract</b>
+					<br/>
+					Alle mondelinge voorbesprekingen zijn zuiver informatief. De overeenkomst komt slechts tot stand door ondertekening van het contract door VTK Ondersteuning VZW. Een begin van uitvoering wordt gelijkgesteld met de afsluiting van een contract en met aanvaarding van deze algemene voorwaarden tenzij deze uitvoering onder uitdrukkelijk voorbehoud is geschied. De uitvoering ervan geschiedt conform de algemene verkoopsvoorwaarden in de offerte, het contract, de bestelbon, de leveringsnota, en/of de factuur opgenomen, zonder toepassing van de eigen voorwaarden van de medecontractant, zelfs al worden deze naderhand meegedeeld.
+					Elke annulering van de bestelling dient schriftelijk te geschieden. Zij is slechts geldig mits schriftelijke aanvaarding door VTK Ondersteuning vzw. Ingeval een annulatie tot en met 40 dagen voor het evenement zal 45% van het overeengekomen bedrag aangerekend worden, van 39 tot en met 21 dagen voor het evenement 70% van het overeengekomen bedrag aangerekend worden en vanaf 20 dagen voor het evenement zal 100% van dit bedrag aangerekend worden. Deze vergoeding dekt de vaste en variabele kosten en mogelijke winstderving.
+					<br/>
+
+					<b>Artikel 3: Prijs</b><br/>
 					De prijs wordt bepaald op het ogenblik van de ondertekening van het contract.
-					<br />
-					Artikel 4: Levering
-					<br />
-					4.1. De goederen die materieel moeten worden geleverd (vb. boeken, e.d.), worden verstuurd per post, behoudens schriftelijk anders overeengekomen.
-					<br />
-					4.2. Indien het contract toegang verleent tot een online-databank, heeft de levering plaats door overhandiging van een gebruikersnaam en wachtwoord.
-					<br />
-					Artikel 5: Controle
-					<br />
-					5.1. De medecontractant dient de goederen onmiddellijk in ontvangst te nemen en na te zien op hun conformiteit met de bestelling en op eventuele zichtbare gebreken. Indien op dat
-					ogenblik niet wordt geprotesteerd, erkent de medecontractant dat de levering juist en volledig is, en aanvaardt hij de goederen in de staat waarin ze zich bevinden.
-					<br />
-					5.2. Verborgen gebreken kunnen slechts tot vergoeding aanleiding geven indien zij binnen de 8 dagen kenbaar worden gemaakt aan VTK Ondersteuning VZW en dit bij aangetekend
-					schrijven en de goederen inmiddels niet in behandeling worden genomen.
-					<br />
-					5.3. De aansprakelijkheid van VTK Ondersteuning VZW is in elk geval beperkt tot de vervanging van de gebrekkige goederen door gelijkwaardige goederen. VTK Ondersteuning VZW
-					is niet aansprakelijk voor enige andere schade uit welke hoofde ook, zij het aan personen, voorwerpen of aan de goederen zelf.
-					<br />
-					Artikel 6: Betalingen
-					<br />
-					6.1. De prijs is - behoudens uitdrukkelijk andersluidende vermelding op de factuur - betaalbaar uiterlijk 30 dagen na factuurdatum.
-					<br />
-					6.2. Bij niet-betaling op de vervaldag zal van rechtswege en zonder voorafgaande ingebrekestelling een verwijlintrest verschuldigd zijn van 12% of, indien deze hoger is, de wettelijke
-					intrestvoet bepaald overeenkomstig artikel 5 van de wet van 2 augustus 2002 betreffende de bestrijding van de betalingsachterstand bij handelstransacties, gewijzigd door artikel 7
-					van de wet van 22 november 2013.
-					<br />
-					6.3. Bij niet-betaling op de vervaldag zal van rechtswege en zonder voorafgaande ingebrekestelling een schadeloosstelling van 10% bovenop een forfaitaire vergoeding van € 40,-
-					voor de invorderingskosten, ontstaan door de niet-betaling, overeenkomstig artikel 6 van de wet van 2 augustus 2002 betreffende de bestrijding van de betalingsachterstand bij
-					handelstransacties, gewijzigd door artikel 8 van de wet van 22 november 2013.
-					<br />
-					6.4. Verkeerde meldingen op de factuur moeten binnen de 8 dagen na de factuurdatum bij aangetekend schrijven worden meegedeeld. Na afloop van die termijn wordt de factuur
-					geacht juist en aanvaard te zijn.
-					<br />
-					6.5. In geval van betwisting van een deel van de geleverde goederen is de medecontractant in ieder geval gehouden tot betaling op de vervaldag van de factuur van het niet betwiste
-					gedeelte.
-					<br />
-					Artikel 7: Waarborgen
-					<br />
-					Indien het vertrouwen van VTK Ondersteuning VZW in de kredietwaardigheid van de medecontractant geschokt wordt door daden van gerechtelijke uitvoering tegen de medecontractant
-					en/of aanwijsbare andere gebeurtenissen die het vertrouwen in de goede uitvoering van door de medecontractant aangegane verbintenissen in vraag stellen, dan behoudt VTK
-					Ondersteuning VZW zich het recht voor van de medecontractant geschikte waarborgen te eisen. Indien de medecontractant weigert hierop in te gaan, behoudt VTK Ondersteuning
-					VZW zich het recht voor de gehele bestelling of een gedeelte ervan te annuleren, zelfs indien de goederen reeds geheel of gedeeltelijk werden verzonden of reeds online toegang werd
-					verleend. In voorkomend geval zal een schadevergoeding verschuldigd zijn à rato van 35% van het bedrag van de bestelling/overeenkomst.
-					<br />
-					Artikel 8: Industriële en intellectuele eigendom
-					<br />
-					8.1. Indien een door VTK Ondersteuning VZW geleverd goed inbreuk zou maken op een octrooi of model recht of op andere rechten van industriële- of intellectuele eigendom van
-					derden, zal VTK Ondersteuning VZW naar haar keuze en na overleg met de medecontractant het betreffende goed vervangen door een goed dat geen inbreuk maakt op het betrokken
-					recht of een licentierecht terzake werven, dan wel het goed terugnemen tegen terugbetaling van de betaalde prijs, onder aftrek van een bedrag wegens slijtage en/of ouderdom. De
-					medecontractant dient alleszins VTK Ondersteuning VZW tijdig en volledig in te lichten over de aanspraken van derden, op straffe van verlies van het recht op de hierboven vermelde
-					prestaties.
-					<br />
-					8.2. Het is de medecontractant evenmin toegelaten om de gegevens waartoe toegang wordt verschaft of de publicaties die ter beschikking worden gesteld te verveelvoudigen of
-					openbaar te maken door middel van druk, fotocopie, microfilm, elektronisch, op geluidsband of op welke andere wijze ook en evenmin in een retrieval systeem worden opgeborgen
-					zonder voorafgaandelijke, uitdrukkelijke en schriftelijke toestemming van VTK Ondersteuning VZW.
-					<br />
-					Artikel 9: Maatregelen die ons verplichten tot wijzigen van het evenement
-					<br />
-					Indien de onderwerpen van deze overeenkomst onderhevig worden aan maatregelen getroffen al dan niet opgelegd door overheden, de KU Leuven of andere betrokken instanties, zal
-					VTK altijd trachten het betrokken engagement na te leven met het oog op het behouden van het evenement. Indien deze maatregelen het evenement niet meer mogelijk maken zal er
-					een online alternatief voorzien worden, afhankelijk van het type evenement zal er een compensatie voorzien worden.
-					<br />
-					9.1. Voor Sector Nights, BR Launches of gelijkaardige evenementen zal bij een overschakeling naar een online alternatief een compensatie geleverd worden in de vorm van een gratis
-					door VTK aangewezen optie uit de door VTK opgestelde Collaboration Brochure van het academiejaar waarin het contract geldig is.
-					9.2. Voor Internship Fair, Jobfair of gelijkaardige evenementen zal bij een overschakeling naar een online alternatief een financiële compensatie geleverd worden van 25% van de prijs
-					van de desbetreffende optie waarvoor fysieke aanwezigheid vereist is.
-					<br />
-					Artikel 10: Overmacht
-					<br />
-					Ingeval van overmacht heeft VTK Ondersteuning VZW het recht om de uitvoering van de overeenkomst op te schorten hetzij de overeenkomst te beëindigen. Ingeval van overmacht
-					ziet de medecontractant uitdrukkelijk af van enige schadevergoeding.
-					<br />
-					Artikel 11: Toepasselijk recht
-					<br />
-					Op alle door VTK Ondersteuning VZW afgesloten overeenkomsten zal uitsluitend het Belgisch recht van toepassing zijn.
-					<br />
-					Artikel 12: Geschillen
-					<br />
+					<br/>
+					
+					<b>Artikel 4: Levering</b><br/>
+					De goederen die materieel moeten worden geleverd (vb. boeken, e.d.), worden verstuurd per post, behoudens schriftelijk anders overeengekomen.
+					Indien het contract toegang verleent tot een online-databank, heeft de levering plaats door overhandiging van een gebruikersnaam en wachtwoord.
+					<br/>
+
+					<b>Artikel 5: Controle</b><br/>
+					De medecontractant dient de goederen onmiddellijk in ontvangst te nemen en na te zien op hun conformiteit met de bestelling en op eventuele zichtbare gebreken. Indien op dat ogenblik niet wordt geprotesteerd, erkent de medecontractant dat de levering juist en volledig is, en aanvaardt hij de goederen in de staat waarin ze zich bevinden.
+					Verborgen gebreken kunnen slechts tot vergoeding aanleiding geven indien zij binnen de 8 dagen kenbaar worden gemaakt aan VTK Ondersteuning VZW en dit bij aangetekend schrijven en de goederen inmiddels niet in behandeling worden genomen.
+					De aansprakelijkheid van VTK Ondersteuning vzw is in elk geval beperkt tot de vervanging van de gebrekkige goederen door gelijkwaardige goederen. VTK Ondersteuning vzw is niet aansprakelijk voor enige andere schade uit welke hoofde ook, zij het aan personen, voorwerpen of aan de goederen zelf. 
+					<br/>
+
+					<b>Artikel 6: Betalingen</b><br/>
+					De prijs is - behoudens uitdrukkelijk andersluidende vermelding op de factuur - betaalbaar uiterlijk 30 dagen na factuurdatum.
+					Bij niet-betaling op de vervaldag zal van rechtswege en zonder voorafgaande ingebrekestelling een verwijlintrest verschuldigd zijn van 12 %, of , Indien deze hoger is, de wettelijke intrestvoet bepaald overeenkomstig artikel 5 van de Wet van 2 augustus 2002 betreffende de bestrijding van de betalingsachterstand bij handelstransacties,.
+					Bij laattijdige betaling zal het factuurbedrag worden verhoogd met een forfaitaire schadevergoeding van 10 %, met een minimum van € 125, onverminderd het recht op een redelijke schadeloosstelling voor eventuele invorderingskosten overeenkomstig artikel 6 van de Wet van 2 augustus 2002.
+					Verkeerde meldingen op de factuur moeten binnen de 8 dagen na de factuurdatum bij aangetekend schrijven worden meegedeeld. Na afloop van die termijn wordt de factuur geacht juist en aanvaard te zijn.
+					In geval van betwisting van een deel van de geleverde goederen is de medecontractant in ieder geval gehouden tot betaling op de vervaldag van de factuur van het niet betwiste gedeelte.
+					<br/>
+
+					<b>Artikel 7: Waarborgen</b><br/>
+					Indien het vertrouwen van VTK Ondersteuning vzw in de kredietwaardigheid van de medecontractant geschokt wordt door daden van gerechtelijke uitvoering tegen de medecontractant en/of aanwijsbare andere gebeurtenissen die het vertrouwen in de goede uitvoering van door de medecontractant aangegane verbintenissen in vraag stellen, dan behoudt VTK Ondersteuning vzw zich het recht voor van de medecontractant geschikte waarborgen te eisen. Indien de medecontractant weigert hierop in te gaan, behoudt VTK Ondersteuning vzw zich het recht voor de gehele bestelling of een gedeelte ervan te annuleren, zelfs indien de goederen reeds geheel of gedeeltelijk werden verzonden of reeds online toegang werd verleend. In voorkomend geval zal een schadevergoeding verschuldigd zijn à rato van 35% van het bedrag van de bestelling/overeenkomst.
+					<br/>
+
+					<b>Artikel 8: Industriële en intellectuele eigendom</b><br/>
+
+					Indien een door VTK Ondersteuning vzw geleverd goed inbreuk zou maken op een octrooi of model recht of op andere rechten van industriële- of intellectuele eigendom van derden, zal VTK Ondersteuning vzw naar haar keuze en na overleg met de medecontractant het betreffende goed vervangen door een goed dat geen inbreuk maakt op het betrokken recht of een licentierecht terzake werven, dan wel het goed terugnemen tegen terugbetaling van de betaalde prijs, onder aftrek van een bedrag wegens slijtage en/of ouderdom. De medecontractant dient alleszins VTK Ondersteuning vzw tijdig en volledig in te lichten over de aanspraken van derden, op straffe van verlies van het recht op de hierboven vermelde prestaties. 
+					Het is de medecontractant evenmin toegelaten om de gegevens waartoe toegang wordt verschaft of de publicaties die ter beschikking worden gesteld te verveelvoudigen of openbaar te maken door middel van druk, fotocopie, microfilm, elektronisch, op geluidsband of op welke andere wijze ook en evenmin in een retrieval systeem worden opgeborgen zonder voorafgaandelijke, uitdrukkelijke en schriftelijke toestemming van VTK Ondersteuning vzw.
+					<br/>
+
+					<b>Artikel 9: Maatregelen die ons verplichten tot wijzigen van het evenement</b><br/>
+
+					Indien de onderwerpen van deze overeenkomst onderhevig worden aan maatregelen getroffen al dan niet opgelegd door overheden, de KU Leuven of andere betrokken instanties, zal VTK altijd trachten het betrokken engagement na te leven met het oog op het behouden van het evenement. Indien deze maatregelen het evenement niet meer mogelijk maken zal er een online alternatief voorzien worden, afhankelijk van het type evenement zal er een compensatie voorzien worden.
+					<br/>
+
+					<b>Artikel 10: Overmacht</b><br/>
+					Ingeval van overmacht heeft VTK Ondersteuning vzw het recht om de uitvoering van de overeenkomst op te schorten hetzij de overeenkomst te beëindigen. Ingeval van overmacht ziet de medecontractant uitdrukkelijk af van enige schadevergoeding.
+					<br/>
+
+					<b>Artikel 11: Toepasselijk recht</b><br/>
+					Op alle door VTK Ondersteuning vzw afgesloten overeenkomsten zal uitsluitend het Belgisch recht van toepassing zijn.
+					<br/>
+
+					<b>Artikel 12: Geschillen</b><br/>
 					Ingeval van betwisting zijn uitsluitend de Rechtbanken van Leuven bevoegd.
+					<br/>
+
+					<b>Artikel 13: Privacy</b><br/>
+					De medecontractant verbindt zich ertoe de persoonsgegevens waartoe hij toegang heeft gekregen naar aanleiding van de afsluiting van een contract met VTK Ondersteuning VZW, niet te kopiëren, openbaar te maken of over te dragen aan derden. Tevens verbindt de medecontractant er zich toe de wet betreffende de verwerking van persoonsgegevens d.d. 2 mei 2019 te respecteren en na te leven.
+					<br/>
 				</p>
 			</div>
 		</div>
