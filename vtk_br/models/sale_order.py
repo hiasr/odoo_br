@@ -5,7 +5,7 @@ class SaleOrder(models.Model):
 	_inherit = "sale.order"
 
 	state = fields.Selection(readonly=False)
-	contract_title = fields.Char(required=True)
+	contract_title = fields.Char()
 
 	general_discount = fields.Float(
 		string="Discount (%)",

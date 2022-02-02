@@ -52,6 +52,13 @@
 				.logo {
 					width:25%;
 				}
+
+				li {
+						page-break-inside: avoid !important;
+				}
+				.ending {
+						page-break-inside: avoid;
+				}
 			</style>
 
 			<div class="logo-header">
@@ -75,11 +82,11 @@
 					Tussen
 				</div>
 				<div style="float:left;width:80%;margin-bottom:30px;">
-					<b><t t-esc="doc.partner_id.name"/></b><br/>
+					<b><t t-esc="doc.partner_id.parent_id.name"/></b><br/>
 					<t t-esc="doc.partner_id.street"/><br/>
 					<t t-esc="doc.partner_id.zip"/> <t t-esc="doc.partner_id.city"/><br/>
 					<t t-esc="doc.partner_id.country_id.name"/><br/>
-					vertegenwoordigd door ondergetekende, <t t-if="doc.partner_id.parent_id"><t t-esc="doc.partner_id.name"/>,</t><br/>
+					vertegenwoordigd door ondergetekende, <t t-esc="doc.partner_id.name"/>,<br/>
 					hierna genoemd "het bedrijf"<br/>
 				</div>
 			</div>
@@ -104,8 +111,10 @@
 			
 			<div class="products">
 				<t t-foreach="doc.order_line" t-as="line">
-					<div t-raw="line.product_id.contract_text"> </div>
+						<div t-raw="line.product_id.contract_text"> </div>
+					<br/>
 				</t>
+				<br/>
 			</div>
 
 			<t t-if="doc.amount_untaxed >= 5000">
@@ -145,7 +154,9 @@
 
 				<div class="signatures" style="overflow:hidden;">
 					<div style="float:left;width:50%">
-						In naam en voor rekening van het bedrijf,
+						<br/>
+						In naam en voor rekening van het bedrijf,<br/>
+						<t t-esc="doc.partner_id.name"/>
 					</div>
 
 					<div style="float:right;width:50%;page-break-after:always;">
@@ -370,7 +381,7 @@
 
 				<div class="customer">
 					<b style="font-size:12px">Invoice Address:</b><br/>
-					<b><t t-esc="doc.partner_id.name"/></b><br/>
+					<b><t t-esc="doc.partner_id.parent_id.name"/></b><br/>
 					<t t-esc="doc.partner_id.street"/><br/>
 					<t t-esc="doc.partner_id.zip"/> <t t-esc="doc.partner_id.city"/><br/>
 					<t t-esc="doc.partner_id.country_id.name"/><br/>

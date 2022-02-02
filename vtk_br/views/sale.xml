@@ -10,4 +10,14 @@
 			</xpath>
 		</field>
 	</record>
+	<record id="orderline_view_form" model="ir.ui.view">
+		<field name="name">sale.order.line.view.form.br</field>
+		<field name="model">sale.order.line</field>
+		<field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='product_updatable']" position="after">
+				<field name="contract_text"/>
+			</xpath>
+		</field>
+	</record>
 </odoo>
