@@ -7,6 +7,7 @@
 		<field name="arch" type="xml">
 			<xpath expr="//field[@name='note']" position="before">
 				<field name="contract_title"/>
+				<field name='partner_contract'/>
 			</xpath>
 		</field>
 	</record>

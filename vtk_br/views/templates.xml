@@ -5,21 +5,28 @@
 			<table style="table-layout:fixed;font-size:12px;">
 				<tr>
 					<td style="width:35%;text-align:left">
-						BTW: BE 0479.482.282<br/>
-						IBAN: BE30 7450 1759 0011<br/>
-						BIC: KREDBEBB<br/>
+						BTW: BE 0479.482.282
+						<br />
+						IBAN: BE30 7450 1759 0011
+						<br />
+						BIC: KREDBEBB
+						<br />
 					</td>
 
 					<td style="width:30%;text-align:center">
-						Vlaams Technische Kring<br/>
+						Vlaams Technische Kring
+						<br />
 						Faculteitskring Ingenieurswetenschappen
 						aan de KU Leuven
 					</td>
 
 					<td style="width:35%;text-align:right">
-						Tel: +32 (0)16 20.00.97<br/>
-						http://www.vtk.be<br/>
-						bedrijvenrelaties@vtk.be<br/>
+						Tel: +32 (0)16 20.00.97
+						<br />
+						http://www.vtk.be
+						<br />
+						bedrijvenrelaties@vtk.be
+						<br />
 					</td>
 				</tr>
 			</table>
@@ -27,14 +34,14 @@
 	</template>
 	<template id="br_contract">
 		<t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <t t-call="vtk_br.br_contract_document" t-lang="doc.partner_id.lang"/>
-            </t>
-        </t>
-    </template>
+			<t t-foreach="docs" t-as="doc">
+				<t t-call="vtk_br.br_contract_document" t-lang="doc.partner_id.lang" />
+			</t>
+		</t>
+	</template>
 	<template id="br_contract_document">
-		<t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
-		<t t-call="vtk_br.vtk_footer"/>
+		<t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+		<t t-call="vtk_br.vtk_footer" />
 		<div class="page">
 			<style>
 				div.title {
@@ -62,18 +69,29 @@
 			</style>
 
 			<div class="logo-header">
-				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1"/>
+				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1" />
 				<div style="float:right">
-					Opgemaakt te Heverlee op <t t-esc="doc.create_date.strftime('%m/%d/%Y')"/>
+					Opgemaakt te Heverlee op
+					<t t-esc="doc.create_date.strftime('%m/%d/%Y')" />
 				</div>
 			</div>
 
 			<div class="title">
 				<t t-if="doc.partner_id.parent_id">
-					<h1 class="title">VTK - <span t-field="doc.partner_id.parent_id.name"/>: <span t-field="doc.contract_title"/></h1>
+					<h1 class="title">
+						VTK -
+						<span t-field="doc.partner_id.parent_id.name" />
+						:
+						<span t-field="doc.contract_title" />
+					</h1>
 				</t>
 				<t t-else="">
-					<h1 class="title">VTK - <span t-field="doc.partner_id.name"/>: <span t-field="doc.contract_title"/></h1>
+					<h1 class="title">
+						VTK -
+						<span t-field="doc.partner_id.name" />
+						:
+						<span t-field="doc.contract_title" />
+					</h1>
 				</t>
 			</div>
 
@@ -82,12 +100,23 @@
 					Tussen
 				</div>
 				<div style="float:left;width:80%;margin-bottom:30px;">
-					<b><t t-esc="doc.partner_id.parent_id.name"/></b><br/>
-					<t t-esc="doc.partner_id.street"/><br/>
-					<t t-esc="doc.partner_id.zip"/> <t t-esc="doc.partner_id.city"/><br/>
-					<t t-esc="doc.partner_id.country_id.name"/><br/>
-					vertegenwoordigd door ondergetekende, <t t-esc="doc.partner_id.name"/>,<br/>
-					hierna genoemd "het bedrijf"<br/>
+					<b>
+						<t t-esc="doc.partner_id.parent_id.name" />
+					</b>
+					<br />
+					<t t-esc="doc.partner_id.street" />
+					<br />
+					<t t-esc="doc.partner_id.zip" />
+					<t t-esc="doc.partner_id.city" />
+					<br />
+					<t t-esc="doc.partner_id.country_id.name" />
+					<br />
+					vertegenwoordigd door ondergetekende,
+					<t t-esc="doc.partner_id.name" />
+					,
+					<br />
+					hierna genoemd "het bedrijf"
+					<br />
 				</div>
 			</div>
 
@@ -96,28 +125,39 @@
 					en
 				</div>
 				<div style="float:left;width:80%;margin-bottom:30px;">
-					<b><t t-esc="doc.company_id.name"/></b><br/>
-					<t t-esc="doc.company_id.street"/><br/>
-					<t t-esc="doc.company_id.zip"/> <t t-esc="doc.company_id.city"/><br/>
-					<t t-esc="doc.company_id.country_id.name"/><br/>
-					vertegenwoordigd door ondergetekende, <t t-esc="doc.user_id.name"/>,<br/>
-					hierna genoemd "VTK"<br/>
+					<b>
+						<t t-esc="doc.company_id.name" />
+					</b>
+					<br />
+					<t t-esc="doc.company_id.street" />
+					<br />
+					<t t-esc="doc.company_id.zip" />
+					<t t-esc="doc.company_id.city" />
+					<br />
+					<t t-esc="doc.company_id.country_id.name" />
+					<br />
+					vertegenwoordigd door ondergetekende,
+					<t t-esc="doc.user_id.name" />
+					,
+					<br />
+					hierna genoemd "VTK"
+					<br />
 				</div>
 			</div>
 
 			<div>
 				werd het volgende overeengekomen:
 			</div>
-			
+
 			<div class="products">
 				<t t-foreach="doc.order_line" t-as="line">
-						<div t-raw="line.product_id.contract_text"> </div>
-					<br/>
+					<div t-raw="line.product_id.contract_text"></div>
+					<br />
 				</t>
-				<br/>
+				<br />
 			</div>
 
-			<t t-if="doc.amount_untaxed >= 5000">
+			<t t-if="doc.amount_untaxed >= 5000 or doc.partner_contract">
 				<div class="partner_discount">
 					<ul>
 						<li>
@@ -134,7 +174,9 @@
 			<div class="payment_terms">
 				<ul>
 					<li>
-						Het bedrijf verklaart de volgende betalingsvoorwaarden na te leven: € <t t-esc="doc.amount_untaxed"/> (excl. 21%
+						Het bedrijf verklaart de volgende betalingsvoorwaarden na te leven: €
+						<t t-esc="doc.amount_untaxed" />
+						(excl. 21%
 						BTW), te betalen uiterlijk 30 dagen na facturatiedatum. De storting dient te gebeuren op het
 						rekeningnummer BE30 7450 1759 0011 van VTK Ondersteuning vzw met vermelding van
 						het factuurnummer.
@@ -149,27 +191,36 @@
 				</p>
 
 				<p>
-					Contract opgemaakt in tweevoud te Heverlee op <t t-esc="doc.create_date.strftime('%m/%d/%Y')"/>.
+					Contract opgemaakt in tweevoud te Heverlee op
+					<t t-esc="doc.create_date.strftime('%m/%d/%Y')" />
+					.
 				</p>
 
 				<div class="signatures" style="overflow:hidden;">
 					<div style="float:left;width:50%">
-						<br/>
-						In naam en voor rekening van het bedrijf,<br/>
-						<t t-esc="doc.partner_id.name"/>
+						<br />
+						In naam en voor rekening van het bedrijf,
+						<br />
+						<t t-esc="doc.partner_id.name" />
 					</div>
 
 					<div style="float:right;width:50%;page-break-after:always;">
 						<p>
-							In naam en voor rekening van VTK,<br/>
-							Lars Wouters<br/>
-							Verantwoordelijke Bedrijvenrelaties<br/>
-							<br/><br/><br/>
+							In naam en voor rekening van VTK,
+							<br />
+							Lars Wouters
+							<br />
+							Verantwoordelijke Bedrijvenrelaties
+							<br />
+							<br />
+							<br />
+							<br />
 						</p>
 
 						<p>
-							In naam en voor rekening van VTK,<br/>
-							<t t-esc="doc.user_id.name"/>
+							In naam en voor rekening van VTK,
+							<br />
+							<t t-esc="doc.user_id.name" />
 						</p>
 					</div>
 				</div>
@@ -291,16 +342,16 @@
 
 	<template id="br_invoice">
 		<t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <t t-call="vtk_br.br_invoice_document" t-lang="doc.partner_id.lang"/>
-            </t>
-        </t>
-    </template>
+			<t t-foreach="docs" t-as="doc">
+				<t t-call="vtk_br.br_invoice_document" t-lang="doc.partner_id.lang" />
+			</t>
+		</t>
+	</template>
 
 	<template id="br_invoice_document">
-		
-		<t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
-		<t t-call="vtk_br.vtk_footer"/>
+
+		<t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+		<t t-call="vtk_br.vtk_footer" />
 		<div class="page">
 			<style>
 				.header-logo, .contacts {
@@ -364,27 +415,41 @@
 				</style>
 
 			<div class="header-logo">
-				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1"/>
+				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1" />
 				<div class="doc_type">INVOICE</div>
 			</div>
 
 			<div class="contacts">
 				<div class="company">
-					<br/>
-					<b>VTK Ondersteuning vzw</b><br/>
-					Studentenwijk Arenberg 6/1<br/>
-					3001 Heverlee<br/>
-					Belgium<br/>
-					BE.0479.482.282<br/>
-					RPR Leuven<br/>
+					<br />
+					<b>VTK Ondersteuning vzw</b>
+					<br />
+					Studentenwijk Arenberg 6/1
+					<br />
+					3001 Heverlee
+					<br />
+					Belgium
+					<br />
+					BE.0479.482.282
+					<br />
+					RPR Leuven
+					<br />
 				</div>
 
 				<div class="customer">
-					<b style="font-size:12px">Invoice Address:</b><br/>
-					<b><t t-esc="doc.partner_id.parent_id.name"/></b><br/>
-					<t t-esc="doc.partner_id.street"/><br/>
-					<t t-esc="doc.partner_id.zip"/> <t t-esc="doc.partner_id.city"/><br/>
-					<t t-esc="doc.partner_id.country_id.name"/><br/>
+					<b style="font-size:12px">Invoice Address:</b>
+					<br />
+					<b>
+						<t t-esc="doc.partner_id.parent_id.name" />
+					</b>
+					<br />
+					<t t-esc="doc.partner_id.street" />
+					<br />
+					<t t-esc="doc.partner_id.zip" />
+					<t t-esc="doc.partner_id.city" />
+					<br />
+					<t t-esc="doc.partner_id.country_id.name" />
+					<br />
 				</div>
 			</div>
 
@@ -398,11 +463,21 @@
 				</tr>
 
 				<tr>
-					<td><t t-esc="doc.name"/></td>
-					<td><t t-esc="doc.invoice_date"/></td>
-					<td><t t-esc="doc.invoice_date_due"/></td>
-					<td><t t-esc="doc.partner_id.vat"/></td>
-					<td><t t-esc="doc.ref"/></td>
+					<td>
+						<t t-esc="doc.name" />
+					</td>
+					<td>
+						<t t-esc="doc.invoice_date" />
+					</td>
+					<td>
+						<t t-esc="doc.invoice_date_due" />
+					</td>
+					<td>
+						<t t-esc="doc.partner_id.vat" />
+					</td>
+					<td>
+						<t t-esc="doc.ref" />
+					</td>
 				</tr>
 			</table>
 
@@ -417,10 +492,19 @@
 
 				<t t-foreach="doc.invoice_line_ids" t-as="line">
 					<tr style="line-height:15px;height:15px">
-						<td><t t-esc="line.name"/></td>
-						<td><span t-field="doc.currency_id.symbol"/><span t-field="line.price_unit"/></td>
-						<td><span t-field="line.quantity"/></td>
-						<td><t t-esc="str(line.tax_ids.description).split()[-1]"/></td>
+						<td>
+							<t t-esc="line.name" />
+						</td>
+						<td>
+							<span t-field="doc.currency_id.symbol" />
+							<span t-field="line.price_unit" />
+						</td>
+						<td>
+							<span t-field="line.quantity" />
+						</td>
+						<td>
+							<t t-esc="str(line.tax_ids.description).split()[-1]" />
+						</td>
 					</tr>
 				</t>
 				<tr>
@@ -434,15 +518,21 @@
 				<table class="total_table">
 					<tr style="line-height:15px;height:15px">
 						<th style="width:70%">TOTAL (Excl. VAT)</th>
-						<td><span t-field="doc.amount_untaxed"/></td>
+						<td>
+							<span t-field="doc.amount_untaxed" />
+						</td>
 					</tr>
 					<tr style="line-height:15px;height:15px">
 						<th>VAT</th>
-						<td><span t-field="doc.amount_tax"/></td>
+						<td>
+							<span t-field="doc.amount_tax" />
+						</td>
 					</tr>
 					<tr style="line-height:15px;height:15px">
 						<th>TO PAY</th>
-						<td><span t-field="doc.amount_total"/></td>
+						<td>
+							<span t-field="doc.amount_total" />
+						</td>
 					</tr>
 				</table>
 			</div>
