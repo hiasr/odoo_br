@@ -5,3 +5,4 @@ class ResPartner(models.Model):
 	_inherit = "res.partner"
 
 	litus_username = fields.Char("Litus Username")
+	main_contact = fields.Boolean("Main Contact Person")
