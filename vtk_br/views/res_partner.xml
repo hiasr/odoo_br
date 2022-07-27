@@ -10,34 +10,21 @@
 				<field name="spendings"/>
 			</xpath>
 
-			<xpath expr="//div[@class='oe_kanban_details']/field[@name='name']" position="after">
-				<t t-if="record.main_contact.value==True">
-					<div>
-						<span>
-							<b>Main contact</b>
-						</span>
-					</div>
-				</t>
-			</xpath>
-			<xpath expr="//page[@name='contact_addresses']/field[@name='child_ids']/kanban/field[@name='mobile']" position="after">
+			<xpath expr="//field[@name='vat']" position="after">
 				<field name="main_contact" attrs="{'invisible': [('is_company', '=', True)]}"/>
 			</xpath>
-			<xpath expr="//field[@name='vat']" position="after">
-				<field name="main_contact" />
+
+			<!-- Field in kanban blocks in child_ids -->
+			<xpath expr="//field[@name='child_ids']/kanban/templates//div[@class='oe_kanban_details']//field[@name='name']" position="after">
+				<field name="main_contact" invisible="1"/>
+				<br/><b attrs="{'invisible': [('main_contact', '=', False)]}">Main contact</b>
 			</xpath>
 
-			<xpath expr="//field[@name='child_ids']/kanban/templates//div[@class='oe_kanban_details']//field[@name='name']" position="after">
+			<!-- Field in popup when clicking on child_id in parent company-->
+			<xpath expr="//field[@name='child_ids']/form//field[@name='name']" position="after">
 				<field name="main_contact"/>
 			</xpath>
-		</field>
-	</record>
-	<!-- 
-	<record id="res_partner_kanban_view" model="ir.ui.view">
-		<field name="name">res.partner.view.kanban.vtk</field>
-		<field name="model">res.partner</field>
-		<field name="inherit_id" ref="base.res_partner_kanban_view" />
-		<field name="arch" type="xml">
 
 		</field>
-	</record> -->
+	</record>
 </odoo>
