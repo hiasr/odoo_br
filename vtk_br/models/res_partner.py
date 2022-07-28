@@ -7,7 +7,7 @@ class ResPartner(models.Model):
 
     litus_username = fields.Char("Litus Username")
     main_contact = fields.Boolean("Main Contact Person")
-    spendings = fields.Monetary(compute="_compute_spendings")
+    spendings = fields.Monetary(compute="_compute_spendings", store=True)
 
     @api.depends("child_ids.sale_order_ids")
     def _compute_spendings(self):
