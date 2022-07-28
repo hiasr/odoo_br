@@ -6,7 +6,12 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     litus_username = fields.Char("Litus Username")
-    main_contact = fields.Boolean("Main Contact Person")
+
+    contact_type = fields.Selection(
+        string="Contact Type",
+        selection=[("main_contact", "Main Contact"), ("contact", "Contact")],
+    )
+
     spendings = fields.Monetary(compute="_compute_spendings", store=True)
 
     @api.depends("child_ids.sale_order_ids")
