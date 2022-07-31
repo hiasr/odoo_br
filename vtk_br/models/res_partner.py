@@ -39,6 +39,14 @@ class ResPartner(models.Model):
         for index in range(len(records)):
             df.loc[index, "Bedrijf"] = records[index].name
             cc_emails = list()
+
+            if (
+                records[index].is_company
+                and not records[index].child_ids
+                and records[index].email
+            ):
+                df.loc[index, "Email"] = records[index].email
+
             for contact in records[index].child_ids:
                 if contact.contact_type == "main_contact":
                     df.loc[index, "Naam"] = contact.name
