@@ -72,7 +72,7 @@
 				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1" />
 				<div style="float:right">
 					Opgemaakt te Heverlee op
-					<t t-esc="doc.create_date.strftime('%m/%d/%Y')" />
+					<t t-esc="doc.create_date.strftime('%d/%m/%Y')" />
 				</div>
 			</div>
 
@@ -159,10 +159,10 @@
 					<ul>
 						<li>
 							Vanwege de trouwe samenwerking biedt VTK een Partnership aan. Dit houdt in dat het logo
-							van het bedrijf gratis in ons wekelijks magazine \‘t Bakske en op de homepage van onze
+							van het bedrijf gratis in ons wekelijks magazine ‘t Bakske en op de homepage van onze
 							website www.vtk.be te zien zal zijn. Zo staat het bedrijf het hele jaar door in de spotlights.
-							Bovendien krijgt het bedrijf een korting van 5% op het totale bedrag van dit contract en mag het
-							bedrijf gratis gebruik maken van één Event Package gedurende het academiejaar 2021-2022.
+							Bovendien krijgt het bedrijf een korting van 5% op het totale bedrag van €<t t-esc="doc.amount_undiscounted"/> en mag het
+							bedrijf gratis gebruik maken van één Event Package gedurende het academiejaar 2022-2023.
 						</li>
 					</ul>
 				</div>
@@ -189,7 +189,7 @@
 
 				<p>
 					Contract opgemaakt in tweevoud te Heverlee op
-					<t t-esc="doc.create_date.strftime('%m/%d/%Y')" />
+					<t t-esc="doc.create_date.strftime('%d/%m/%Y')" />
 					.
 				</p>
 
@@ -249,6 +249,8 @@
 					<br />
 					2.2.2. Voor goederen of engagementen die bij het tekenen van de overeenkomst niet gekoppeld zijn aan een fysiek evenement zal bij annulatie een vergoeding van 35% verschuldigd
 					zijn van de prijs.
+					<br/>
+					2.3 In het geval dat VTK Ondersteuning VZW, met uitzondering van overmacht, overgaat tot de annulering van een evenement of bestelling, heeft het bedrijf recht op volledige compensatie.
 					<br />
 					Artikel 3: Prijs
 					<br />
