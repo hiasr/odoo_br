@@ -515,6 +515,14 @@
 			</table>
 			<div style="overflow:hidden">
 				<table class="total_table">
+					<t t-if="any([line.discount for line in doc.invoice_line_ids])">
+					<tr style="line-height:15px;height:15px">
+						<th>DISCOUNT</th>
+						<td>
+							<span t-esc="sum([line.discount*line.quantity*line.price_unit/100 for line in doc.invoice_line_ids])" t-options='{"widget": "float", "precision": 2}'/>€
+						</td>
+					</tr>
+					</t>
 					<tr style="line-height:15px;height:15px">
 						<th style="width:70%">TOTAL (Excl. VAT)</th>
 						<td>
