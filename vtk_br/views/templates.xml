@@ -154,7 +154,7 @@
 				<br />
 			</div>
 
-			<t t-if="doc.amount_untaxed >= 5000 or doc.partner_contract">
+			<t t-if="doc.amount_untaxed >= 6000 or doc.partner_contract">
 				<div class="partner_discount">
 					<ul>
 						<li>
