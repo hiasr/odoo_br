@@ -8,6 +8,7 @@
 			<xpath expr="//group[@name='description']" position="after">
 			<group string="Contracts and Invoices">
 				<field name="contract_text" options="{'codeview': true}"/>
+				<field name="contract_text_en" options="{'codeview': true}"/>
 				<field name="invoice_description"/>
 				<field name="academic_year"/>
 			</group>
