@@ -9,7 +9,7 @@
         "views/sale.xml",
         "views/product_template.xml",
         "views/res_partner.xml",
-        "actions/mailmerge.xml",
+        "actions/res_partner.xml",
     ],
     "description": """
 		Uitbreiding van Odoo voor VTK Bedrijvenrelaties

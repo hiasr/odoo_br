@@ -9,4 +9,14 @@
         action = model.download_mailmerge(records)
       </field>
   </record>
+
+  <record model="ir.actions.server" id="send_activation">
+      <field name="name">Send Activation Link</field>
+      <field name="model_id" ref="model_res_partner"/>
+      <field name="binding_model_id" ref="model_res_partner"/>
+      <field name="state">code</field>
+      <field name="code">
+         model.send_activation_link(records)
+      </field>
+  </record>
 </odoo>
