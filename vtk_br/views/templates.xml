@@ -417,7 +417,10 @@
 
 			<div class="header-logo">
 				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1" />
-				<div class="doc_type">INVOICE</div>
+                <div class="doc_type">
+                    <t t-if="doc.move_type=='out_invoice'">INVOICE</t>
+                    <t t-if="doc.move_type=='out_refund'">CREDIT NOTE</t>
+                </div>
 			</div>
 
 			<div class="contacts">
