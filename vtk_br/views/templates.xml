@@ -149,10 +149,10 @@
 			<div class="products">
 				<t t-foreach="doc.order_line" t-as="line">
 					<t t-if="doc.partner_id.lang=='nl_BE'">
-						<div t-raw="product_id.contract_text"></div>
+						<div t-raw="line.product_id.contract_text"></div>
 					</t>
 					<t t-if="doc.partner_id.lang!='nl_BE'">
-						<div t-raw="product_id.contract_text_en"></div>
+						<div t-raw="line.product_id.contract_text_en"></div>
 					</t>
 					<br />
 				</t>
