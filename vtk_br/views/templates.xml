@@ -79,7 +79,8 @@
 			<div class="title">
 				<t t-if="doc.partner_id.parent_id">
 					<h1 class="title">
-						Contract: VTK - <span t-field="doc.partner_id.parent_id.name" />
+						Contract: VTK -
+						<span t-field="doc.partner_id.parent_id.name" />
 					</h1>
 				</t>
 				<t t-else="">
@@ -166,7 +167,9 @@
 							Vanwege de trouwe samenwerking biedt VTK een Partnership aan. Dit houdt in dat het logo
 							van het bedrijf gratis in ons wekelijks magazine ‘t Bakske en op de homepage van onze
 							website www.vtk.be te zien zal zijn. Zo staat het bedrijf het hele jaar door in de spotlights.
-							Bovendien krijgt het bedrijf een korting van 5% op het totale bedrag van €<t t-esc="doc.amount_undiscounted"/> en mag het
+							Bovendien krijgt het bedrijf een korting van 5% op het totale bedrag van €
+							<t t-esc="doc.amount_undiscounted" />
+							en mag het
 							bedrijf gratis gebruik maken van één Event Package gedurende het academiejaar 2022-2023.
 						</li>
 					</ul>
@@ -253,7 +256,7 @@
 					<br />
 					2.2.2. Voor goederen of engagementen die bij het tekenen van de overeenkomst niet gekoppeld zijn aan een fysiek evenement zal bij annulatie een vergoeding van 35% verschuldigd
 					zijn van de prijs.
-					<br/>
+					<br />
 					2.3 In het geval dat Vlaamse Technische Kring vzw, met uitzondering van overmacht, overgaat tot de annulering van een evenement of bestelling, heeft het bedrijf recht op volledige compensatie.
 					<br />
 					Artikel 3: Prijs
@@ -417,10 +420,10 @@
 
 			<div class="header-logo">
 				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1" />
-                <div class="doc_type">
-                    <t t-if="doc.move_type=='out_invoice'">INVOICE</t>
-                    <t t-if="doc.move_type=='out_refund'">CREDIT NOTE</t>
-                </div>
+				<div class="doc_type">
+					<t t-if="doc.move_type=='out_invoice'">INVOICE</t>
+					<t t-if="doc.move_type=='out_refund'">CREDIT NOTE</t>
+				</div>
 			</div>
 
 			<div class="contacts">
@@ -501,6 +504,7 @@
 						</td>
 						<td>
 							<span t-field="doc.currency_id.symbol" />
+							<t t-if="doc.move_type=='out_refund'">-</t>
 							<span t-field="line.price_unit" />
 						</td>
 						<td>
@@ -521,37 +525,45 @@
 			<div style="overflow:hidden">
 				<table class="total_table">
 					<t t-if="any([line.discount for line in doc.invoice_line_ids])">
-					<tr style="line-height:15px;height:15px">
-						<th>DISCOUNT</th>
-						<td>
-							<span t-esc="sum([line.discount*line.quantity*line.price_unit/100 for line in doc.invoice_line_ids])" t-options='{"widget": "float", "precision": 2}'/>€
-						</td>
-					</tr>
+						<tr style="line-height:15px;height:15px">
+							<th>DISCOUNT</th>
+							<td>
+								<span t-esc="sum([line.discount*line.quantity*line.price_unit/100 for line in doc.invoice_line_ids])" t-options='{"widget": "float", "precision": 2}' />
+								€
+							</td>
+						</tr>
 					</t>
 					<tr style="line-height:15px;height:15px">
-						<th style="width:70%">TOTAL (Excl. VAT)</th>
+						<th style="width:60%">TOTAL (Excl. VAT)</th>
 						<td>
+							<t t-if="doc.move_type=='out_refund'">-</t>
 							<span t-field="doc.amount_untaxed" />
 						</td>
 					</tr>
 					<tr style="line-height:15px;height:15px">
 						<th>VAT</th>
 						<td>
-							<span t-field="doc.amount_tax" />
+							<span>
+								<t t-if="doc.move_type=='out_refund'">-</t>
+								<span t-field="doc.amount_tax" />
+							</span>
 						</td>
 					</tr>
 					<tr style="line-height:15px;height:15px">
 						<th>TO PAY</th>
 						<td>
+							<t t-if="doc.move_type=='out_refund'">-</t>
 							<span t-field="doc.amount_total" />
 						</td>
 					</tr>
 				</table>
 			</div>
 			<p>
-				Gelieve het bovenstaande factuurbedrag te betalen op IBAN: BE30 7450 1759 0011 ten laatste 30
-				dagen na factuurdatum, zoals overeengekomen in het contract. Voor inlichtingen van financiële aard
-				kan u steeds terecht bij beheer@vtk.be.
+				<t t-if="doc.move_type !='out_refund'">
+					Gelieve het bovenstaande factuurbedrag te betalen op IBAN: BE30 7450 1759 0011 ten laatste 30
+					dagen na factuurdatum, zoals overeengekomen in het contract. 
+				</t>
+				Voor inlichtingen van financiële aard kan u steeds terecht bij beheer@vtk.be.
 			</p>
 			<div class="terms_conditions" style="page-break-before:always;font-size:10px">
 				<p>
