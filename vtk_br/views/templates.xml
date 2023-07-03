@@ -421,7 +421,14 @@
 			<div class="header-logo">
 				<img class="img logo" src="https://i.imgur.com/A6zMDfY.png?1" />
 				<div class="doc_type">
-					<t t-if="doc.move_type=='out_invoice'">INVOICE</t>
+					<t t-if="doc.move_type=='out_invoice'">
+						<t t-if="doc.state=='draft'">
+							QUOTE
+						</t>
+						<t t-if="doc.state=='posted'">
+							INVOICE
+						</t>
+					</t>
 					<t t-if="doc.move_type=='out_refund'">CREDIT NOTE</t>
 				</div>
 			</div>
@@ -462,23 +469,27 @@
 
 			<table class="infotable">
 				<tr class="table_head">
-					<th>Invoice Nb.</th>
-					<th>Invoice Date</th>
-					<th>Expiration Date</th>
+					<t t-if="doc.state!='draft'">
+						<th>Invoice Nb.</th>
+						<th>Invoice Date</th>
+						<th>Expiration Date</th>
+					</t>
 					<th>VAT Number Client</th>
 					<th>Your Reference</th>
 				</tr>
 
 				<tr>
-					<td>
-						<t t-esc="doc.name" />
-					</td>
-					<td>
-						<t t-esc="doc.invoice_date" />
-					</td>
-					<td>
-						<t t-esc="doc.invoice_date_due" />
-					</td>
+					<t t-if="doc.state!='draft'">
+						<td>
+							<t t-esc="doc.name" />
+						</td>
+						<td>
+							<t t-esc="doc.invoice_date" />
+						</td>
+						<td>
+							<t t-esc="doc.invoice_date_due" />
+						</td>
+					</t>
 					<td>
 						<t t-esc="doc.partner_id.vat" />
 					</td>
@@ -559,7 +570,7 @@
 				</table>
 			</div>
 			<p>
-				<t t-if="doc.move_type !='out_refund'">
+				<t t-if="doc.move_type !='out_refund' and doc.state=='posted'">
 					Gelieve het bovenstaande factuurbedrag te betalen op IBAN: BE30 7450 1759 0011 ten laatste 30
 					dagen na factuurdatum, zoals overeengekomen in het contract. 
 				</t>
